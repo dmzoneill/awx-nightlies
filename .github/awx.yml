@@ -1,0 +1,30 @@
+name: Hourly Workflow
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # Run every hour
+
+jobs:
+  your-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up GitHub CLI
+        uses: actions/setup-gh@v0
+        with:
+          gh-version: 'latest'  # You can specify a version if needed
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x  # Choose your Python version
+
+      - name: Run Python Script
+        run: |
+          gh --version  # Check GitHub CLI version (optional)
+          python awxdraft.py
+        env:
+          GH_TOKEN: ${{ secrets.AWX_TOKEN }}

@@ -8,7 +8,7 @@ on:
       - main  # Adjust the branch as needed
 
 jobs:
-  your-job:
+  awx-pr-to-draft:
     runs-on: ubuntu-latest
 
     steps:
@@ -27,6 +27,7 @@ jobs:
 
       - name: Run awx draft script
         run: |
+          ls -liah .
           gh --version
           python3 --version
           python3 awxdraft.py

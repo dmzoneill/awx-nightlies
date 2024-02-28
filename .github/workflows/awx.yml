@@ -25,9 +25,9 @@ jobs:
         with:
           python-version: 3.12
 
-      - name: Run Python Script
+      - name: Run awx draft script
         run: |
-          gh --version  # Check GitHub CLI version (optional)
-          python awxdraft.py
+          gh --version
+          python3 awxdraft.py
         env:
           GH_TOKEN: ${{ secrets.AWX_TOKEN }}

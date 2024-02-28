@@ -30,6 +30,7 @@ jobs:
           ls -liah .
           gh --version
           python3 --version
-          python3 ./awxdraft.py
+          python3 ./awxdraft.py > log.txt 2>&1
+          cat log.txt
         env:
           GH_TOKEN: ${{ secrets.AWX_TOKEN }}

@@ -47,18 +47,10 @@ def check_pr_status(owner, repo, pull_request_number):
         # Split the output into lines
         lines = result.stdout.strip().split('\n')
 
-        # Check if all lines begin with '✓' except for the specific line
-        begin = False
         for line in lines:
-            if "NAME" in line:
-                begin=True
-                continue
-            if begin == False:
-                continue
-            if line.startswith('X') and "CI/api-schema" in line:
+            if "fail" in line and "api-schema" in line:
                 continue  # Ignore the specific line
-            elif not line.startswith('✓'):
-                print(f"Not all lines start with '✓'.")
+            if "pass" not in line and "api-schema" not in line:
                 return False
 
         return True

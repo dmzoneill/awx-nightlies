@@ -28,6 +28,7 @@ jobs:
       - name: Run awx draft script
         run: |
           gh --version
+          python3 --version
           python3 awxdraft.py
         env:
           GH_TOKEN: ${{ secrets.AWX_TOKEN }}

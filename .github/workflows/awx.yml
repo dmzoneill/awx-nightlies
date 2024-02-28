@@ -29,7 +29,7 @@ jobs:
         run: touch log.txt
 
       - name: Run awx draft script
-        run: python3 ./awxdraft.py > log.txt 2>&1
+        run: python3 ./awxdraft.py
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.AWX_TOKEN }}

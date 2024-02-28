@@ -1,6 +1,5 @@
 import json
 import subprocess
-import os
 
 def get_open_prs(owner, repo, label='blocked'):
     command = f'gh pr list -R https://github.com/{owner}/{repo}/ --search "draft:false" --json number,title,labels'
@@ -47,8 +46,6 @@ def update_pull_request_to_draft(owner, repo, pull_request_number):
 if __name__ == "__main__":
     owner = 'ansible'
     repo = 'awx'
-    access_token = os.environ.get('GH_TOKEN')
-
     label = 'blocked'
     
     open_prs = get_open_prs(owner, repo, label)

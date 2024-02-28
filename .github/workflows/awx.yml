@@ -25,6 +25,10 @@ jobs:
         with:
           python-version: 3.12
 
+      - name: Install requirements
+        run: |
+          pip3 install requests graphql
+
       - name: Run awx draft script
         shell: bash
         run: |

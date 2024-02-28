@@ -25,14 +25,10 @@ jobs:
         with:
           python-version: 3.12
 
-      - name: Create log
-        run: touch log.txt
-
       - name: Run awx draft script
-        run: python3 ./awxdraft.py
+        run: |
+          set -x
+          python3 ./awxdraft.py
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.AWX_TOKEN }}
-
-      - name: Review log
-        run: cat log.txt

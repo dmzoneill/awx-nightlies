@@ -2,10 +2,10 @@ name: Hourly Workflow
 
 on:
   schedule:
-    - cron: '0 * * * *'  # Run every hour
+    - cron: '0 * * * *'
   push:
     branches:
-      - main  # Adjust the branch as needed
+      - main
 
 jobs:
   awx-pr-to-draft:

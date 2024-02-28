@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up GitHub CLI
         uses: sersoft-gmbh/setup-gh-cli-action@v2
@@ -21,7 +21,7 @@ jobs:
           version: stable
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: 3.12
 
@@ -30,6 +30,6 @@ jobs:
           ls -liah .
           gh --version
           python3 --version
-          python3 awxdraft.py
+          python3 ./awxdraft.py
         env:
           GH_TOKEN: ${{ secrets.AWX_TOKEN }}

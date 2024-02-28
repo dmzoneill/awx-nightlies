@@ -27,7 +27,7 @@ jobs:
 
       - name: Install requirements
         run: |
-          pip3 install requests graphql
+          pip3 install cython requests graphql
 
       - name: Run awx draft script
         shell: bash

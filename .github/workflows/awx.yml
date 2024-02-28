@@ -3,6 +3,9 @@ name: Hourly Workflow
 on:
   schedule:
     - cron: '0 * * * *'  # Run every hour
+  push:
+    branches:
+      - main  # Adjust the branch as needed
 
 jobs:
   your-job:

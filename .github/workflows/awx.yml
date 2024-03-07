@@ -1,35 +1,35 @@
-name: Hourly Workflow
+# name: Hourly Workflow
 
-on:
-  schedule:
-    - cron: '0 0 * * *'
-  push:
-    branches:
-      - main
+# on:
+#   schedule:
+#     - cron: '0 0 * * *'
+#   push:
+#     branches:
+#       - main
 
-jobs:
-  awx-pr-to-draft:
-    runs-on: ubuntu-latest
+# jobs:
+#   awx-pr-to-draft:
+#     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+#     steps:
+#       - name: Checkout Repository
+#         uses: actions/checkout@v4
 
-      - name: Set up GitHub CLI
-        uses: sersoft-gmbh/setup-gh-cli-action@v2
-        with:
-          version: stable
+#       - name: Set up GitHub CLI
+#         uses: sersoft-gmbh/setup-gh-cli-action@v2
+#         with:
+#           version: stable
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: 3.12
+#       - name: Set up Python
+#         uses: actions/setup-python@v4
+#         with:
+#           python-version: 3.12
 
-      - name: Run awx draft script
-        shell: bash
-        run: |
-          set -x
-          python3 ./awxdraft.py
-        continue-on-error: true
-        env:
-          GH_TOKEN: ${{ secrets.AWX_TOKEN }}
+#       - name: Run awx draft script
+#         shell: bash
+#         run: |
+#           set -x
+#           python3 ./awxdraft.py
+#         continue-on-error: true
+#         env:
+#           GH_TOKEN: ${{ secrets.AWX_TOKEN }}
